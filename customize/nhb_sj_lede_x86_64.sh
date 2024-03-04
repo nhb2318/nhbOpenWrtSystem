@@ -80,6 +80,10 @@ git_sparse_clone v5 https://github.com/sbwml/luci-app-mosdns v2dat
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-zerotier
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages zerotier
 
+#n2n 内网穿透
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-n2n
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages n2n
+
 #luci-app-autotimeset 定时设置
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-autotimeset
 
