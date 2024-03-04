@@ -1,6 +1,6 @@
 #!/bin/bash
 #=================================================
-# 自定义
+# 自定义nhb_sj_lede_x86_64,用于单位
 #=================================================
 ##########################################添加额外包##########################################
 
@@ -26,11 +26,11 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/luci/applications/luci-app-netdata
 #rm -rf feeds/small8/shadowsocks-rust
 
-#luci-theme-argone
+#luci-theme-argone 主题
 git_sparse_clone main https://github.com/kenzok8/small-package luci-theme-argone
 git_sparse_clone main https://github.com/kenzok8/small-package luci-app-argone-config
 
-#luci-app-store
+#luci-app-store 应用中心
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-store
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-lib-taskd
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-lib-xterm
@@ -38,7 +38,7 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages taskd
 #更换插件名称
 sed -i 's/("iStore"),/("应用中心"),/g' package/linpc/luci-app-store/luasrc/controller/store.lua
 
-#adguardhome
+#adguardhome 去广告
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages adguardhome
 
@@ -49,20 +49,20 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-ssr
 #更换插件名称
 #sed -i 's/ShadowSocksR Plus+/科学上网/g' feeds/small8/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 
-#ddns-go
+#ddns-go 内网穿透
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages ddns-go
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-ddns-go
 # rm -rf feeds/small8/ddns-go feeds/small8/luci-app-ddns-go
 # git clone --depth=1 https://github.com/sirpdboy/luci-app-ddns-go package/ddnsgo
 
-#Netdata
+#Netdata 实时监控(图形)
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages netdata
 git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/linpc/luci-app-netdata
 sed -i 's/"status"/"system"/g' package/linpc/luci-app-netdata/luasrc/controller/*.lua
 sed -i 's/"status"/"system"/g' package/linpc/luci-app-netdata/luasrc/model/cgi/*.lua
 sed -i 's/admin\/status/admin\/system/g' package/linpc/luci-app-netdata/luasrc/view/netdata/*.htm
 
-#mosdns
+#mosdns DNS转发器
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages mosdns
 git_sparse_clone v5 https://github.com/sbwml/luci-app-mosdns luci-app-mosdns
 git_sparse_clone v5 https://github.com/sbwml/luci-app-mosdns mosdns
@@ -71,11 +71,11 @@ rm -rf package/feeds/packages/v2dat
 git_sparse_clone v5 https://github.com/sbwml/luci-app-mosdns v2dat
 
 
-#zerotier
+#zerotier 内网穿透
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-zerotier
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages zerotier
 
-#luci-app-autotimeset
+#luci-app-autotimeset 定时设置
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-autotimeset
 
 
@@ -117,7 +117,7 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages lua-maxmindd
 
 
 # 修改默认登录地址
-sed -i 's/192.168.1.1/10.1.1.254/g' ./package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.8.248/g' ./package/base-files/files/bin/config_generate
 
 #2. 修改默认登录密码
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' ./package/lean/default-settings/files/zzz-default-settings
